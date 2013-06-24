@@ -5,7 +5,11 @@
 
 var myPhoneNumberTest = "215-888-2295";
 var myEmailTest = "kevinjfry@gmail.com";
-var myURLTest = "https://www.fryintl.com/"
+var myURLTest = "https://www.fryintl.com/";
+var myStringToUpperCase = "i would like to convert every word to uppercase";
+var myOldString = "0,1,2,3,4,5,6,7,8,9";
+var myOldSeparator = ",";
+var myNewSeparator = "/";
 
 ////////////////////////////////////////////////////////////////////////////////
 // Does a string follow a 123-456-7890 pattern like a phone number?
@@ -83,14 +87,58 @@ var testURL = function(url){
     }
 };
 
+////////////////////////////////////////////////////////////////////////////////
+// Title-case a string (split into words, then uppercase the first letter of each word)
+var funcUcFirstMyWords = function(stringToUpperCase){
+    // toUpperCase()	Converts a string to uppercase letters
+    // change the words into an array and uppercase the first letter of each string in the array
+    var words = stringToUpperCase.split(" ");
+    // charAt()	Returns the character at the specified index
+    // toUpperCase()	Converts a string to uppercase letters
+    //var myReturnArray = Array();
+    var myReturnString = "";
+    for (i=0; i<words.length; i++){
+        //
+        var chars = words[i].split("");
+        for(ii=0; ii<chars.length; ii++){
+            if(ii === 0){
+                myReturnString = myReturnString + chars[ii].toUpperCase();
+            } else {
+                myReturnString = myReturnString + chars[ii];
+            }
+            // end output of character
+        }
+        // end output of word
+        myReturnString = myReturnString + " ";
+    }
+    //console.log(myReturnString);
+    return myReturnString.trim();
+};
 
-
+////////////////////////////////////////////////////////////////////////////////
+// Given a string that is a list of things separated by a given string, as well 
+// as another string separator, return a string with the first separator changed
+// to the second: "a,b,c" + "," + "/" → "a/b/c".
+var funcChangeStringSeparator = function(oldString,oldSeparator,newSeparator){
+    var thisReturnString = "";
+    var theseValues = oldString.split(oldSeparator);
+    for (i=0; i<theseValues.length; i++){
+        thisReturnString = thisReturnString + theseValues[i];
+        if (!(i === (theseValues.length - 1))){
+            thisReturnString = thisReturnString + newSeparator;
+        }
+    }
+    return thisReturnString;
+};
 
 boolPhoneNumber = testPhoneNumberPattern(myPhoneNumberTest);
 boolEmail = testEmailPattern(myEmailTest);
 boolURL = testURL(myURLTest);
-
+strMyUCWords = funcUcFirstMyWords(myStringToUpperCase);
+strMyNewString = funcChangeStringSeparator(myOldString, myOldSeparator, myNewSeparator);
 
 console.log("It's " + boolPhoneNumber + " that \"" + myPhoneNumberTest + "\" meets our phone number requirements.");
 console.log("It's " + boolEmail + " that \"" + myEmailTest + "\" meets our e-mail requirements.");
 console.log("It's " + boolURL + " that \"" + myURLTest + "\" meets our url requirements.");
+console.log("We're changing \"" + myStringToUpperCase + "\", to uppercase, as seen here: \"" + strMyUCWords + "\".");
+console.log("We're changing \"" + myOldString + "\", to use a new separator, as seen here: \"" + strMyNewString + "\".");
