@@ -3,6 +3,8 @@
 // Project 4
 // My Library of String, Number, and Array testing
 
+// VARIABLES
+// string variables
 var myPhoneNumberTest = "215-888-2295";
 var myEmailTest = "kevinjfry@gmail.com";
 var myURLTest = "https://www.fryintl.com/";
@@ -11,6 +13,16 @@ var myOldString = "0,1,2,3,4,5,6,7,8,9";
 var myOldSeparator = ",";
 var myNewSeparator = "/";
 
+// number variables
+var myMoney = 2.1;
+
+// array variables
+
+
+////////////////////////////////////////////////////////////////////////////////
+// FUNCTIONS
+////////////////////////////////////////////////////////////////////////////////
+// STRING FUNCTIONS
 ////////////////////////////////////////////////////////////////////////////////
 // Does a string follow a 123-456-7890 pattern like a phone number?
 var testPhoneNumberPattern = function(phoneNumber){
@@ -131,14 +143,28 @@ var funcChangeStringSeparator = function(oldString,oldSeparator,newSeparator){
     return thisReturnString;
 };
 
+////////////////////////////////////////////////////////////////////////////////
+// NUMBER FUNCTIONS
+////////////////////////////////////////////////////////////////////////////////
+// Format a number to use a specific number of decimal places, as for money: 2.1 → 2.10
+var funcFormatToMoney = function(theFloater){
+    var myReturnMoney = theFloater.toFixed(2);
+    return myReturnMoney;
+};
+
+
 boolPhoneNumber = testPhoneNumberPattern(myPhoneNumberTest);
 boolEmail = testEmailPattern(myEmailTest);
 boolURL = testURL(myURLTest);
 strMyUCWords = funcUcFirstMyWords(myStringToUpperCase);
 strMyNewString = funcChangeStringSeparator(myOldString, myOldSeparator, myNewSeparator);
 
+numMoneyReformat = funcFormatToMoney(myMoney);
+
 console.log("It's " + boolPhoneNumber + " that \"" + myPhoneNumberTest + "\" meets our phone number requirements.");
 console.log("It's " + boolEmail + " that \"" + myEmailTest + "\" meets our e-mail requirements.");
 console.log("It's " + boolURL + " that \"" + myURLTest + "\" meets our url requirements.");
 console.log("We're changing \"" + myStringToUpperCase + "\", to uppercase, as seen here: \"" + strMyUCWords + "\".");
 console.log("We're changing \"" + myOldString + "\", from the old separator ("+myOldSeparator+"), to use a new separator ("+myNewSeparator+"), as seen here: \"" + strMyNewString + "\".");
+
+console.log("If we're charged " + myMoney + " for something, we're actually paying $" + numMoneyReformat + " for it.");
