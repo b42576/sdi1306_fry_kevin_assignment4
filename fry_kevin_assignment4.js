@@ -141,4 +141,4 @@ console.log("It's " + boolPhoneNumber + " that \"" + myPhoneNumberTest + "\" mee
 console.log("It's " + boolEmail + " that \"" + myEmailTest + "\" meets our e-mail requirements.");
 console.log("It's " + boolURL + " that \"" + myURLTest + "\" meets our url requirements.");
 console.log("We're changing \"" + myStringToUpperCase + "\", to uppercase, as seen here: \"" + strMyUCWords + "\".");
-console.log("We're changing \"" + myOldString + "\", to use a new separator, as seen here: \"" + strMyNewString + "\".");
+console.log("We're changing \"" + myOldString + "\", from the old separator ("+myOldSeparator+"), to use a new separator ("+myNewSeparator+"), as seen here: \"" + strMyNewString + "\".");
