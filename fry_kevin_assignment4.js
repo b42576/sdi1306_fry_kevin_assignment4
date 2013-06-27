@@ -229,6 +229,6 @@ console.log("We're changing \"" + myOldString + "\", from the old separator ("+m
 
 console.log("If we're charged " + myMoney + " for something, we're actually paying $" + numMoneyReformat + " for it.");
 
-console.log("We can convert a string, such as \""+myStr2Num+"\" to a number, " + strMyNumber+".");
+console.log("We can convert a string, such as \""+myStr2Num+"\" to a number, to " + strMyNumber+".");
 
 // end for now
