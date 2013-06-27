@@ -152,6 +152,40 @@ var funcFormatToMoney = function(theFloater){
     return myReturnMoney;
 };
 
+////////////////////////////////////////////////////////////////////////////////
+// Fuzzy-match a number: is the number above or below a number within a certain percent?
+var funcFuzzyMatch = function(number1, number2, percentage){
+    // [the number, above||below, another number, with a certain percent]
+    // ex. number1 > number2 within 10%
+    // fuzzy logic is blowing my mind
+    // first, let's see what number is greater
+    var difference;
+    var highNumber;
+    var thePercentage;
+    if (number1 > number2){
+        // num1 > num2
+        difference = number1-number2;
+        highNumber = number1;
+        thePercentage = number2/number1;
+    } else if (number1 < number2) {
+        // num1 < num2
+        difference = number2-number1;
+        highNumber = number2;
+        thePercentage = number2/number1;
+    } else {
+        // num1 = num2
+        difference = 0;
+        highNumber = 0;
+        thePercentage = 0;
+    }
+    
+    
+    
+    console.log("");
+};
+
+
+
 
 boolPhoneNumber = testPhoneNumberPattern(myPhoneNumberTest);
 boolEmail = testEmailPattern(myEmailTest);
