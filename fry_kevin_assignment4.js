@@ -13,8 +13,14 @@ var myOldString = "0,1,2,3,4,5,6,7,8,9";
 var myOldSeparator = ",";
 var myNewSeparator = "/";
 
+var myHoursOrDays = "Days";
+var myDate1 = "2013-06-27";
+var myDate2 = "1981-07-26";
+
 // number variables
 var myMoney = 2.1;
+
+var myStr2Num = "42";
 
 // array variables
 
@@ -184,6 +190,24 @@ var funcFuzzyMatch = function(number1, number2, percentage){
     console.log("");
 };
 
+////////////////////////////////////////////////////////////////////////////////
+// Find the number of hours or days difference between two dates.
+var funcBetweenTwoDates = function(hoursOrDays, date1, date2){
+    // research: http://stackoverflow.com/questions/14919201/javascript-calculate-difference-between-two-dates
+    var destructDate1 = date1.split("-");
+    var destructDate2 = date2.split("-");
+    var oneDay = 1000*60*60*24;
+    var oneHour = 1000*60*60;
+    thisDate1 = "";
+    thisDate2 = "";
+};
+
+////////////////////////////////////////////////////////////////////////////////
+// Given a string version of a number such as "42", return the value as an actual Number, such as 42.
+var funcStr2Num = function(thisString) {
+    var rtnNumber = Number(thisString);
+    return rtnNumber;
+};
 
 
 
@@ -195,6 +219,8 @@ strMyNewString = funcChangeStringSeparator(myOldString, myOldSeparator, myNewSep
 
 numMoneyReformat = funcFormatToMoney(myMoney);
 
+strMyNumber = funcStr2Num(myStr2Num);
+
 console.log("It's " + boolPhoneNumber + " that \"" + myPhoneNumberTest + "\" meets our phone number requirements.");
 console.log("It's " + boolEmail + " that \"" + myEmailTest + "\" meets our e-mail requirements.");
 console.log("It's " + boolURL + " that \"" + myURLTest + "\" meets our url requirements.");
@@ -202,3 +228,5 @@ console.log("We're changing \"" + myStringToUpperCase + "\", to uppercase, as se
 console.log("We're changing \"" + myOldString + "\", from the old separator ("+myOldSeparator+"), to use a new separator ("+myNewSeparator+"), as seen here: \"" + strMyNewString + "\".");
 
 console.log("If we're charged " + myMoney + " for something, we're actually paying $" + numMoneyReformat + " for it.");
+
+console.log("We can convert a string, such as "+myStr2Num+" to " + strMyNumber);
